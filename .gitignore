@@ -1,0 +1,5 @@
+#Mac
+.DS_STORE
+
+#My irb command file
+cmd.rb
