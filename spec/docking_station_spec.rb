@@ -5,7 +5,7 @@ describe Docking_Station do
   end
   it 'check if release bike is working' do
     bike = subject.release_bike
-    expect(bike).to eq true
+    expect(bike.working?).to eq true
   end
 
 end
