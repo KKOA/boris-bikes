@@ -12,6 +12,16 @@ As a person,
 So that I can use a good bike,
 I'd like to see if a bike is working
 
+### 3.
+As a member of the public
+So I can return bikes I've hired
+I want to dock my bike at the docking station
+
+### 4.
+As a member of the public
+So I can decide whether to use the docking station
+I want to see a bike that has been docked
+
 ## Nouns in User Stories
 - person
 - bike
@@ -20,17 +30,22 @@ I'd like to see if a bike is working
 ## Verbs in User Stories
 - release bike
 - working
+- dock
 
 ##  Functional representation of that story
 
-| Objects        | Messages     |
-|----------------|--------------|
-| Person         |              |
-| Bike           | working?     |
-| Docking_Station | release_bike |
+| Objects         | Messages                      |
+|-----------------|-------------------------------|
+| Person          |                               |
+| Bike            | working?                      |
+| Docking_Station | release_bike <br>dock<br>bike |
 
 ## How our Objects will use Messages to communicate with one another
 
 Bike            <-- working?      --> true/false
 
 Docking_Station <-- release_bike  --> bike
+
+Docking_Station <-- dock
+
+Docking_Station <-- bike          -->bike
