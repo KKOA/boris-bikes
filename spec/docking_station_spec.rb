@@ -8,7 +8,7 @@ describe Docking_Station do
     expect(bike.working?).to eq true
   end
   it 'has method dock' do
-    is_expected.to respond_to(:release_bike).with(1).argument
+    is_expected.to respond_to(:dock).with(1).argument
   end
 
 end
