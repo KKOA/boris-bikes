@@ -1,4 +1,5 @@
 require './lib/docking_station'
+require './lib/bike'
 describe Docking_Station do
   it "has method release_bike" do
     is_expected.to respond_to(:release_bike)
@@ -9,6 +10,10 @@ describe Docking_Station do
   end
   it 'has method dock' do
     is_expected.to respond_to(:dock).with(1).argument
+  end
+  it 'see Bike from docking station' do
+    subject.dock(Bike.new)
+    except(subject.bike).to eq (Bike.new)
   end
 
 end
