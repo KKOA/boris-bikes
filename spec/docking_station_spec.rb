@@ -1,13 +1,13 @@
 require './lib/docking_station'
 require './lib/bike'
-describe Docking_Station do
-  describe "#release_bike" do
-    it "has method release_bike" do
+describe DockingStation do
+  describe '#release_bike' do
+    it 'has method release_bike' do
       is_expected.to respond_to(:release_bike)
     end
-    context "empty dock station" do
-      it "Inform user no bike avaliable" do
-        expect {subject.release_bike}.to raise_error "Docking station empty"
+    context 'empty dock station' do
+      it 'Inform user no bike avaliable' do
+        expect { subject.release_bike }.to raise_error 'Docking station empty'
       end
     end
   end
@@ -16,14 +16,13 @@ describe Docking_Station do
     bike = subject.release_bike
     expect(bike.working?).to eq true
   end
-  describe "#dock" do
+  describe '#dock' do
     it 'has method dock' do
       is_expected.to respond_to(:dock).with(1).argument
     end
-    context "full dock station" do
-      it "raise an error" do
-        20.times { subject.dock(Bike.new)}
-        expect{subject.dock(Bike.new)}.to raise_error "Docking station is full"
+    context 'full dock station' do
+      it 'raise an error' do
+        expect { (DockingStation::MAX_CAPACITY + 1).times { subject.dock(Bike.new) } }.to raise_error 'Docking station is full'
       end
     end
   end
@@ -32,5 +31,4 @@ describe Docking_Station do
     subject.dock(bike)
     expect(subject.bikes[0]).to eq (bike)
   end
-
 end
