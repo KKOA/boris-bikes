@@ -20,6 +20,11 @@ describe Docking_Station do
     it 'has method dock' do
       is_expected.to respond_to(:dock).with(1).argument
     end
+    context "full dock station" do
+      it "Prevent adding new bike" do
+        expect{subject.release_bike}.to raise_error "message"
+      end
+    end
   end
   it 'see Bike from docking station' do
     bike = Bike.new
