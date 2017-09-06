@@ -7,7 +7,7 @@ describe Docking_Station do
     end
     context "empty dock station" do
       it "Inform user no bike avaliable" do
-        expect {subject.release_bike}.to raise_error "message"
+        expect {subject.release_bike}.to raise_error "Docking station empty"
       end
     end
   end
@@ -21,15 +21,16 @@ describe Docking_Station do
       is_expected.to respond_to(:dock).with(1).argument
     end
     context "full dock station" do
-      it "Prevent adding new bike" do
-        expect{subject.release_bike}.to raise_error "message"
+      it "raise an error" do
+        20.times { subject.dock(Bike.new)}
+        expect{subject.dock(Bike.new)}.to raise_error "Docking station is full"
       end
     end
   end
   it 'see Bike from docking station' do
     bike = Bike.new
     subject.dock(bike)
-    expect(subject.bike).to eq (bike)
+    expect(subject.bikes[0]).to eq (bike)
   end
 
 end
