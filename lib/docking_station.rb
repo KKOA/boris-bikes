@@ -2,7 +2,8 @@ class Docking_Station
 
   attr_reader :bike
   def release_bike
-    Bike.new
+    raise "message" unless @bike
+    @bike
   end
 
   def dock(bike)

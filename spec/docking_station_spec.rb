@@ -2,11 +2,17 @@ require './lib/docking_station'
 require './lib/bike'
 describe Docking_Station do
   describe "#release_bike" do
-  it "has method release_bike" do
-    is_expected.to respond_to(:release_bike)
+    it "has method release_bike" do
+      is_expected.to respond_to(:release_bike)
+    end
+    context "empty dock station" do
+      it "Inform user no bike avaliable" do
+        expect {subject.release_bike}.to raise_error "message"
+      end
+    end
   end
-end
   it 'check if release bike is working' do
+    subject.dock(Bike.new)
     bike = subject.release_bike
     expect(bike.working?).to eq true
   end
